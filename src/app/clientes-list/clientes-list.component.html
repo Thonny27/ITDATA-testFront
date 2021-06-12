@@ -1,0 +1,44 @@
+<br>
+<div>
+  <button type="button" [routerLink]="['/add']" class="btn btn-primary">Agregar</button>
+</div>
+<br>
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">Nombre</th>
+    <th scope="col">Apellido</th>
+    <th scope="col">Area</th>
+    <th scope="col">Solicitud</th>
+    <th scope="col">Descripción</th>
+    <th scope="col">Anexo</th>
+    <th scope="col">Analista</th>
+    <th scope="col">Estado</th>
+    <th scope="col">Fecha Registro</th>
+    <th scope="col">Acción</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let cliente of clientes">
+    <td>{{cliente.nombres}}</td>
+    <td>{{cliente.apellidos}}</td>
+    <td>{{cliente.area}}</td>
+    <td>{{cliente.solicitud}}</td>
+    <td>{{cliente.descripcion}}</td>
+    <td>{{cliente.anexo}}</td>
+    <td>{{cliente.analistaAsignado}}</td>
+    <td>{{cliente.estado}}</td>
+    <td>{{cliente.fechaRegistro}}</td>
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <button type="button" [routerLink]="['/edit', cliente.idRequerimiento]" class="btn btn-warning">Edit</button>
+        </div>
+        <div class="col">
+          <button type="button" (click)="deleteById(cliente.idRequerimiento)" class="btn btn-danger">Delete</button>
+        </div>
+      </div>
+    </div>
+  </tr>
+  </tbody>
+</table>

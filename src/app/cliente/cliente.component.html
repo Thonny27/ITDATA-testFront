@@ -1,0 +1,65 @@
+<div class="container">
+  <div style="margin: 10px;">
+    <button type="button" [routerLink]="['/list']" class="btn btn-primary">Atras</button>
+  </div>
+  <div *ngIf="cliente.idRequerimiento != null else blockUpload">
+  <form>
+    <div class="form-group">
+      <label>Nombre</label>
+      <input type="text" class="form-control" [(ngModel)]="cliente.nombres" name="nombre"
+             aria-describedby="emailHelp"
+             placeholder="Nombres">
+    </div>
+    <div class="form-group">
+      <label>Apellidos</label>
+      <input type="text" class="form-control" [(ngModel)]="cliente.apellidos" name="apellido"
+             placeholder="Apellidos">
+    </div>
+    <div class="form-group">
+      <label>Area</label>
+      <input type="text" class="form-control" [(ngModel)]="cliente.area" name="area"
+             placeholder="Area">
+    </div>
+    <div class="form-group">
+      <label>Solicitud</label>
+      <input type="text" class="form-control" [(ngModel)]="cliente.solicitud" name="nomsol"
+             aria-describedby="emailHelp"
+             placeholder="Nombre Solicitud">
+    </div>
+    <div class="form-group">
+      <label>Solicitud</label>
+      <input type="text" class="form-control" [(ngModel)]="cliente.descripcion" name="descsol"
+             placeholder="Descripcion Solicitud">
+    </div>
+    <div class="form-group">
+      <label>Anexo</label>
+      <input type="text" class="form-control" [(ngModel)]="cliente.anexo" name="anexo"
+             placeholder="Anexo">
+    </div>
+    <div class="form-group">
+      <label>Analista Asignado</label>
+      <input type="text" class="form-control" [(ngModel)]="cliente.analistaAsignado" name="status"
+             placeholder="Status">
+    </div>
+    <div class="form-group">
+      <label>Analista Asignado</label>
+      <input type="text" class="form-control" [(ngModel)]="cliente.estado" name="status"
+             placeholder="Status">
+    </div>
+    <div class="form-group">
+      <label>Analista Asignado</label>
+      <input type="text" class="form-control" [(ngModel)]="cliente.fechaRegistro" name="status"
+             placeholder="Status">
+    </div>
+    <button type="submit" (click)="update()" class="btn btn-primary">Actualizar</button>
+  </form>
+</div>
+
+  <ng-template #blockUpload>
+    <div class="mb-3">
+      <label for="formFile" class="form-label">Subida de excel de cliente</label>
+      <input class="form-control" type="file" id="formFile" (change)="handleExcel($event)" >
+    </div>
+    <button type="submit" (click)="insert()" class="btn btn-primary">Enviar</button>
+  </ng-template>
+</div>
